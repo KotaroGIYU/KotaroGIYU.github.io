@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Gaya Anime Shonen - Ryuu Hayate</title>
+    
+    <!-- Link Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Google Fonts: Oxanium (Tech/Futuristic) and Rajdhani (Bolder) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdE52K269/z+2fO/W939u6pW1qD+Yf5tE+L/B2vGk3f5t3g5uG+n/YvI5uQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* Gaya Kustom Anime Shonen/Cyber */
+        :root {
+            --shonen-dark: #1A1A2E;   /* Deep Night/Cyber Blue */
+            --shonen-red: #FF5733;    /* Flame Red/Danger */
+            --shonen-cyan: #00FFFF;   /* Electric Cyan/Tech Blue */
+            --shonen-gray: #B0B0B0;   /* Metallic Gray */
+            --shonen-light: #F0F0F0;  /* Smoke White */
+        }
+
+        body {
+            font-family: 'Oxanium', monospace; /* Font teknis */
+            background-color: var(--shonen-dark); 
+            color: var(--shonen-light);
+            line-height: 1.6;
+            background-image: radial-gradient(circle at top right, rgba(0, 255, 255, 0.05) 1px, transparent 0),
+                              radial-gradient(circle at bottom left, rgba(255, 87, 51, 0.05) 1px, transparent 0);
+            background-size: 50px 50px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Rajdhani', sans-serif; /* Font judul yang lebih tegas */
+            color: var(--shonen-cyan);
+            text-shadow: 0 0 5px var(--shonen-cyan), 0 0 10px rgba(0, 255, 255, 0.5); /* Efek Neon Cyan */
+            text-transform: uppercase;
+        }
+
+        .navbar-custom {
+            background-color: rgba(26, 26, 46, 0.95); /* Sedikit transparansi */
+            border-bottom: 2px solid var(--shonen-red);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+        }
+        .navbar-brand {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            color: var(--shonen-red) !important;
+            text-shadow: 1px 1px 0 var(--shonen-cyan);
+        }
+        .navbar-custom .nav-link {
+            color: var(--shonen-gray) !important;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease-in-out;
+            border-radius: 3px;
+            padding: 8px 15px;
+            margin: 0 5px;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: var(--shonen-cyan) !important;
+            border-bottom: 2px solid var(--shonen-cyan);
+            background-color: rgba(0, 255, 255, 0.1);
+            transform: translateY(-2px);
+            text-shadow: 0 0 5px var(--shonen-cyan);
+        }
+
+        .section {
+            padding: 70px 0;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            background-color: rgba(36, 36, 60, 0.9); /* Latar belakang lebih terang dari body */
+            border-radius: 8px;
+            border: 2px solid var(--shonen-cyan); /* Border tegas */
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Neon Shadow */
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Sudut tajam untuk kesan UI Cyber */
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border: 2px solid var(--shonen-red);
+            border-radius: 8px;
+            opacity: 0.1;
+            z-index: -1;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); /* Full rectangle, but we use it for an inner glow effect */
+        }
+
+        /* Gambar profil dengan border khas Shonen/UI */
+        .profile-img-container {
+            border: 4px solid var(--shonen-red);
+            border-radius: 50%;
+            padding: 3px;
+            background-color: var(--shonen-cyan);
+            display: inline-block;
+            box-shadow: 0 0 15px var(--shonen-cyan);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-img-container:hover {
+            transform: scale(1.05) rotate(-3deg);
+            box-shadow: 0 0 25px var(--shonen-red);
+        }
+        .profile-img-container img {
+            border-radius: 50%;
+            border: 3px solid var(--shonen-dark);
+            filter: grayscale(10%); /* Sedikit efek dark */
+        }
+
+        .btn-anime {
+            background-color: var(--shonen-red);
+            border: 2px solid var(--shonen-cyan);
+            color: var(--shonen-dark);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: bold;
+            border-radius: 5px; /* Lebih tajam */
+            padding: 10px 25px;
+            box-shadow: 3px 3px 0 var(--shonen-cyan);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+        }
+        .btn-anime:hover {
+            background-color: var(--shonen-cyan);
+            color: var(--shonen-dark);
+            border: 2px solid var(--shonen-red);
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0 var(--shonen-red);
+        }
+        .btn-anime:active {
+            transform: translate(3px, 3px);
+            box-shadow: 0 0 0 var(--shonen-cyan);
+        }
+
+        /* Skill Cards: Angular and Neon */
+        .card-skill {
+            background-color: var(--shonen-dark);
+            border: 1px solid var(--shonen-cyan);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+        .card-skill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--shonen-red), 0 0 20px var(--shonen-red);
+            background-color: rgba(255, 87, 51, 0.1);
+        }
+        .card-skill i {
+            color: var(--shonen-red);
+            text-shadow: 0 0 5px var(--shonen-red);
+            margin-bottom: 10px;
+        }
+        .card-skill p {
+            color: var(--shonen-light);
+            font-weight: bold;
+        }
+
+        /* Project Cards */
+        .card-project {
+            background-color: var(--shonen-dark);
+            border: 2px solid var(--shonen-red);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 87, 51, 0.4);
+            transition: all 0.3s ease;
+        }
+        .card-project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5);
+            border: 2px solid var(--shonen-cyan);
+        }
+        .card-project .card-img-top {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom: 1px solid var(--shonen-red);
+        }
+        .card-project .badge {
+            font-family: 'Oxanium', monospace;
+            background-color: var(--shonen-red);
+            color: var(--shonen-dark);
+            border: 1px solid var(--shonen-cyan);
+            margin: 2px;
+            text-transform: uppercase;
+        }
+        .card-project .card-footer {
+            background-color: rgba(255, 87, 51, 0.1);
+            border-top: 1px solid var(--shonen-red);
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        /* Contact Form */
+        .contact-form .form-control {
+            border: 1px solid var(--shonen-cyan);
+            border-radius: 4px;
+            background-color: rgba(40, 40, 60, 0.9);
+            color: var(--shonen-light);
+            padding: 10px 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .contact-form .form-control:focus {
+            border-color: var(--shonen-red);
+            box-shadow: 0 0 8px rgba(255, 87, 51, 0.6);
+            background-color: var(--shonen-dark);
+            color: var(--shonen-light);
+        }
+        .contact-form .form-control::placeholder {
+            color: var(--shonen-gray);
+            opacity: 0.8;
+        }
+        .contact-form .form-label {
+            font-weight: bold;
+            color: var(--shonen-cyan);
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--shonen-dark);
+            color: var(--shonen-gray);
+            border-top: 1px solid var(--shonen-red);
+            padding: 20px 0;
+            margin-top: 50px;
+            font-family: 'Oxanium', monospace;
+        }
+        footer a {
+            color: var(--shonen-cyan);
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--shonen-red);
+            text-shadow: 0 0 5px var(--shonen-red);
+        }
+
+        /* Modal styling */
+        .modal-content {
+            background-color: var(--shonen-dark);
+            border: 2px solid var(--shonen-cyan);
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+        }
+        .modal-header {
+            background-color: var(--shonen-red);
+            color: var(--shonen-dark);
+            border-bottom: 2px solid var(--shonen-cyan);
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+        .modal-title {
+            font-family: 'Rajdhani', sans-serif;
+            text-shadow: 1px 1px 0 var(--shonen-cyan);
+            color: var(--shonen-dark);
+        }
+        .modal-body {
+            color: var(--shonen-light);
+        }
+        .modal-footer {
+            border-top: 1px solid var(--shonen-red);
+            background-color: rgba(0, 255, 255, 0.1);
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+        .modal-footer .btn-anime {
+            background-color: var(--shonen-cyan);
+            color: var(--shonen-dark);
+            border: 2px solid var(--shonen-dark);
+            box-shadow: none;
+        }
+        .modal-footer .btn-anime:hover {
+             background-color: var(--shonen-light);
+             color: var(--shonen-dark);
+        }
+
+        /* Animasi fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section.d-block {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Utama (Heads-Up Display) -->
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="navigateTo('home')">KOTARO GIYU CODE WARRIOR ⚡</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"> 
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home" onclick="navigateTo('home')"><i class="fas fa-home me-1"></i> HOME BASE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" onclick="navigateTo('about')"><i class="fas fa-user-ninja me-1"></i> PROFILE DATA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#project" onclick="navigateTo('project')"><i class="fas fa-tools me-1"></i> PROJECT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" onclick="navigateTo('contact')"><i class="fas fa-envelope me-1"></i> CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten Utama -->
+<main class="container mt-5">
+
+        <!-- Halaman Home -->
+<section id="home-page" class="section text-center d-block">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-5 mb-4 mb-md-0">
+                    <div class="profile-img-container">
+                        <!-- Placeholder Gambar Profil Cyber/Shonen -->
+                        <img src="https://github.com/KotaroGIYU/pp/blob/main/foto%20biasa%20aja.jpg?raw=true" class="img-fluid" alt="Foto Profil Anime Ryuu Hayate">
+                    </div>
+                </div>
+                <div class="col-md-7 text-md-start">
+                    <h1 class="display-4 fw-bold">HALO, SAYA ANDIKA WICAKSANA</h1>
+                    <p class="lead mt-3" style="color: var(--shonen-cyan);">
+                        MAHASISWA STMIK IKMI CIREBON - KOMPUTERISASI AKUNTANSI
+                    </p>
+    
+                    <a href="#about" onclick="navigateTo('about')" class="btn btn-anime btn-lg mt-4">AKSES DATA PROFILE <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Halaman About Me (Profile Data) -->
+<section id="about-page" class="section d-none">
+            <h2 class="text-center display-5 mb-5 fw-bold"><i class="fas fa-microchip me-2"></i> SYSTEM DATA PROFILE</h2>
+            <div class="row">
+                
+                <!-- Kisahku -->
+                <div class="col-lg-6 mb-4">
+                    <h3 class="fw-bold mb-3" style="color: var(--shonen-red);">TENTANG SAYA</h3>
+                    <p style="color: var(--shonen-gray);">Saya adalah seorang mahasiswa dari Cirebon dan saya dari prodi kompterisasi akuntansi </p>
+                    <p style="color: var(--shonen-gray);">walaupun saya dari jurusan akuntansi,saya juga suka mengoding meskipun saya hanya bisa dasarnya saja dan sedikit paham beberapa bahasa pemograman</p>
+                </div>
+
+                <!-- Keahlian (Senjata Rahasia) -->
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-4" style="color: var(--shonen-red);">TEKNIS</h3>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="card card-skill p-3 text-center">
+                                <i class="fab fa-html5 fa-3x mb-2"></i>
+                                <p class="mb-0 fw-bold">HTML CORE</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card card-skill p-3 text-center">
+                                <i class="fab fa-css3-alt fa-3x mb-2"></i>
+                                <p class="mb-0 fw-bold">CSS MODULES</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card card-skill p-3 text-center">
+                                <i class="fab fa-js-square fa-3x mb-2"></i>
+                                <p class="mb-0 fw-bold">JAVASCRIPT LOGIC</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card card-skill p-3 text-center">
+                                <i class="fab fa-react fa-3x mb-2"></i>
+                                <p class="mb-0 fw-bold">REACT ENGINE</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card card-skill p-3 text-center">
+                                <i class="fab fa-angular fa-3x mb-2"></i>
+                                <p class="mb-0 fw-bold">ANGULAR FRAME</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card card-skill p-3 text-center">
+                                <i class="fab fa-github fa-3x mb-2"></i>
+                                <p class="mb-0 fw-bold">GIT VERSIONING</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Halaman Project (Battle Logs)  -->
+<section id="project-page" class="section d-none">
+    <h2 class="text-center display-5 mb-5 fw-bold"><i class="fas fa-file-invoice me-2"></i>PROJECT RIWAYAT</h2>
+    <div class="row g-4">
+        
+        <!-- Project 1: Website Lagu (Streaming Musik) -->
+        <div class="col-md-4">
+            <div class="card h-100 card-project">
+                <!-- Placeholder Gambar Proyek -->
+                <img src="https://github.com/KotaroGIYU/pp/blob/main/Screenshot%202025-11-14%20144617.png?raw=true" class="card-img-top" alt="Proyek Web Streaming Musik">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: var(--shonen-cyan);">Project M-01: Web music sederhana</h5>
+                    <p class="card-text" style="color: var(--shonen-gray);">Membangun antarmuka web untuk pemutar musik, dan menampilkan lirik</p>
+                    <span class="badge">#JAVASCRIPT</span>
+                    <span class="badge">#WEB-AUDIO</span>
+                    <span class="badge">#RESPONSIVE-UI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: Website Toko Online (E-commerce) -->
+        <div class="col-md-4">
+            <div class="card h-100 card-project">
+                <!-- Placeholder Gambar Proyek -->
+                <img src="https://github.com/KotaroGIYU/pp/blob/main/Screenshot%202025-11-14%20145227.png?raw=true" class="card-img-top" alt="Proyek Website Toko Online">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: var(--shonen-cyan);">Project G-03: Shop Marketplace</h5>
+                    <p class="card-text" style="color: var(--shonen-gray);">Pengembangan website e-commerce lengkap dengan fitur katalog produk, keranjang belanja (cart), dan halaman checkout. Fokus pada UX yang cepat.</p>
+                    <span class="badge">#REACT</span>
+                    <span class="badge">#TAILWIND-CSS</span>
+                    <span class="badge">#STATE-MANAGEMENT</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: Menggambar Karakter Fiksi (Digital Art Showcase) -->
+        <div class="col-md-4">
+            <div class="card h-100 card-project">
+                <!-- Placeholder Gambar Proyek -->
+                <img src="https://github.com/KotaroGIYU/pp/blob/main/WhatsApp%20Image%202025-11-01%20at%2008.43.07_e80f20f2.jpg?raw=true" class="card-img-top" alt="Proyek Digital Art Showcase">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold" style="color: var(--shonen-cyan);">Project Q-10: Fictional Character Gallery</h5>
+                    <p class="card-text" style="color: var(--shonen-gray);">Portofolio digital interaktif untuk menampilkan karya seni karakter fiksi, menggunakan galeri grid dengan animasi *hover* yang menarik.</p>
+                    <span class="badge">#HTML5</span>
+                    <span class="badge">#CSS-ANIMATION</span>
+                    <span class="badge">#GALLERY-UI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Halaman Contact (Transmit) - Diperbarui dengan Tombol Saja -->
+<section id="contact-page" class="section d-none">
+    <h2 class="text-center display-5 mb-5 fw-bold"><i class="fas fa-satellite-dish me-2"></i> CONTACT </h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="text-center p-4 rounded border border-cyan" style="background-color: rgba(40, 40, 60, 0.9);">
+                <h3 class="fw-bold mb-4" style="color: var(--shonen-red);">MY CONTACT</h3>
+                <p class="mb-5" style="color: var(--shonen-gray);">SILAHKAN BISA HUBUNGI SAYA DIBAWAH INI</p>
+
+                <div class="d-grid gap-3">
+                    <!-- WA Button -->
+                    <a href="https://wa.me/6287832162924" target="_blank" class="btn btn-anime btn-lg w-100 btn-wa">
+                        <i class="fab fa-whatsapp me-2"></i> WHATSAPP 
+                    </a>
+
+                    <!-- IG Button -->
+                    <a href="https://www.instagram.com/kotaro.giyu?igsh=YmhkOW45dm1yNTI1" target="_blank" class="btn btn-anime btn-lg w-100 btn-ig">
+                        <i class="fab fa-instagram me-2"></i> INSTAGRAM
+                    </a>
+
+                    <!-- GMAIL Button -->
+                    <a href="andikawicaksana2006@gmail.com" class="btn btn-anime btn-lg w-100 btn-gmail">
+                        <i class="fas fa-envelope me-2"></i> GMAIL (andikawicaksana2006@gmail.com)
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- Footer (Status Bar) -->
+<footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 All Rights Reserved. SYSTEM STATUS: ONLINE.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Pesan Sukses -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel"><i class="fas fa-check-circle me-2"></i> TRANSMISSION RECEIVED</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1);"></button>
+                </div>
+                <div class="modal-body">
+                    Sistem Ryuu telah menerima transmisi datamu. Data akan segera diproses. Bersiap untuk balasan dalam waktu singkat.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-anime" data-bs-dismiss="modal">ACKNOWLEDGE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        const pages = {
+            'home': 'home-page',
+            'about': 'about-page',
+            'project': 'project-page',
+            'contact': 'contact-page'
+        };
+
+        function navigateTo(pageName) {
+            Object.values(pages).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.remove('d-block');
+                    element.classList.add('d-none');
+                }
+            });
+
+            const targetId = pages[pageName];
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.classList.remove('d-none');
+                targetElement.classList.add('d-block');
+            }
+
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+            });
+            
+            const activeLink = document.querySelector(`.navbar-nav a[href="#${pageName}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                activeLink.setAttribute('aria-current', 'page');
+            }
+
+            history.pushState(null, '', `#${pageName}`);
+        }
+
+        function initializePage() {
+            let initialPage = 'home';
+            const hash = window.location.hash.substring(1); 
+            
+            if (hash && pages.hasOwnProperty(hash)) {
+                initialPage = hash;
+            }
+            navigateTo(initialPage);
+        }
+
+        function showMessageModal() {
+            const myModal = new bootstrap.Modal(document.getElementById('successModal'));
+            myModal.show();
+            // Reset form fields after showing modal (simulating successful send)
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+        }
+
+        document.addEventListener('DOMContentLoaded', initializePage);
+        
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && pages.hasOwnProperty(hash)) {
+                navigateTo(hash);
+            } else if (hash === '') {
+                navigateTo('home');
+            }
+        });
+
+    </script>
+</body>
+</html>
