@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesona Kota Cirebon: Warisan Budaya & Kuliner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variabel Warna Khas Cirebon */
+        :root {
+            --cirebon-primary: #8B0000; /* Merah Marun Tua */
+            --cirebon-secondary: #FFD700; /* Kuning Emas Cerah */
+            --cirebon-dark: #333333; /* Untuk teks atau footer */
+            --cirebon-light: #fefefe; /* Latar belakang cerah */
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif; /* Font teks yang modern dan mudah dibaca */
+            line-height: 1.7;
+            background-color: var(--cirebon-light);
+            color: var(--cirebon-dark);
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--cirebon-primary) !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif; /* Font klasik untuk brand */
+            font-weight: 700;
+            color: var(--cirebon-secondary) !important;
+            font-size: 1.8rem;
+        }
+        .nav-link {
+            color: var(--cirebon-light) !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--cirebon-secondary) !important;
+        }
+
+        /* Jumbotron (Hero Section) Styling */
+        .jumbotron {
+            background: linear-gradient(rgba(139, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url('https://upload.wikimedia.org/wikipedia/commons/b/b3/Taman_Air_Goa_Sunyaragi%2C_Cirebon%2C_Jawa_Barat.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0; /* Padding lebih besar */
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Shadow lebih kuat */
+            border-radius: 12px; /* Sudut lebih membulat */
+            animation: fadeIn 1s ease-out; /* Animasi fade-in */
+        }
+        .jumbotron h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 3.5rem; /* Ukuran font lebih besar */
+        }
+        .jumbotron p.lead {
+            font-size: 1.3rem;
+        }
+
+        /* Judul Umum */
+        h2.text-cirebon {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--cirebon-primary);
+            border-bottom: 3px solid var(--cirebon-secondary); /* Garis bawah khas */
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h4.text-cirebon, h5.text-cirebon, h6.text-cirebon {
+            font-family: 'Playfair Display', serif;
+            color: var(--cirebon-primary);
+        }
+
+        /* Tab Navigation Styling (Hidden) */
+        .nav-tabs .nav-link.active {
+            background-color: var(--cirebon-primary) !important;
+            color: white !important;
+            border-color: var(--cirebon-primary) !important;
+        }
+        .nav-tabs .nav-link {
+            color: var(--cirebon-primary);
+            font-weight: bold;
+        }
+        .tab-content {
+            border-radius: 0 0 12px 12px; /* Sudut membulat */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat */
+        }
+        .tab-pane {
+            padding: 30px; /* Padding lebih besar */
+            background-color: var(--cirebon-light);
+            border: 1px solid #dee2e6;
+            border-top: none;
+        }
+
+        /* Card Styling */
+        .card {
+            border: none; /* Hilangkan border default */
+            border-radius: 10px;
+            overflow: hidden; /* Pastikan gambar sesuai sudut */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Efek melayang */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card-img-top {
+            height: 220px; /* Tinggi gambar lebih seragam */
+            object-fit: cover;
+            border-bottom: 3px solid var(--cirebon-secondary); /* Garis pemisah gambar dan teks */
+        }
+        .card-body p.card-text small {
+            color: #666; /* Warna teks kecil lebih lembut */
+        }
+
+        /* List Styling */
+        ul, ol {
+            padding-left: 25px;
+            color: var(--cirebon-dark);
+        }
+        ul li, ol li {
+            margin-bottom: 8px;
+        }
+        .detail-point {
+            font-weight: 700;
+            color: var(--cirebon-primary);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--cirebon-dark);
+            color: var(--cirebon-light);
+            padding: 25px 0;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span style="color: var(--cirebon-secondary);">CIREBON.KITA</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#main-tabs" 
+                           onclick="activateTab('budaya-tab')">🎭 Budaya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#main-tabs" 
+                           onclick="activateTab('karya-tab')">🎨 Karya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#main-tabs" 
+                           onclick="activateTab('kuliner-tab')">🍲 Kuliner Khas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4 animate__animated animate__fadeInDown">Selamat Datang di Cirebon!</h1>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Pusat Budaya, Seni, dan Kuliner di Pesisir Utara Jawa</p>
+        </div>
+    </div>
+
+    <main class="container" id="main-tabs">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-5 text-cirebon">Kekayaan Cirebon: Warisan yang Tak Lekang Waktu</h2>
+
+                <ul class="nav nav-tabs d-none" id="cirebonTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="budaya-tab" data-bs-toggle="tab" data-bs-target="#budaya-pane" type="button" role="tab" aria-controls="budaya-pane" aria-selected="true"></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="karya-tab" data-bs-toggle="tab" data-bs-target="#karya-pane" type="button" role="tab" aria-controls="karya-pane" aria-selected="false"></button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="kuliner-tab" data-bs-toggle="tab" data-bs-target="#kuliner-pane" type="button" role="tab" aria-controls="kuliner-pane" aria-selected="false"></button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="cirebonTabsContent">
+                    
+                    <div class="tab-pane fade show active" id="budaya-pane" role="tabpanel" aria-labelledby="budaya-tab" tabindex="0">
+                        <h4 class="text-cirebon mb-4">🎭 Budaya dan Tradisi Cirebon: Akulturasi Tiga Kekuatan</h4>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="lead">Cirebon, sebagai bekas pusat Kesultanan Islam di pesisir utara Jawa, mewarisi budaya yang sangat kaya. Budayanya adalah perpaduan harmonis dari elemen <span class="detail-point">Jawa, Sunda, Tiongkok, dan Islam</span>, yang tercermin dalam arsitektur, tari, dan adat istiadatnya. Warisan ini terus dijaga dan dilestarikan oleh masyarakatnya.</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 mt-3"> <div class="col-md-3 col-sm-6">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/FotoJet-1-680639823.webp?raw=true"
+
+
+" class="card-img-top" alt="Keraton Kasepuhan Cirebon">
+                                    <div class="card-body p-3">
+                                        <h6 class="card-title text-cirebon">Keraton Kasepuhan</h6>
+                                        <p class="card-text"><small class="text-muted">Dibangun pada tahun 1529, merupakan Keraton tertua yang masih berdiri. Kompleks ini unik karena memadukan unsur Pesisir, Tiongkok, dan Hindu-Budha dalam arsitektur <span class="detail-point">Gerbang Gapura dan Siti Inggil</span>. Salah satu warisan budaya terpenting Cirebon.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/306216889_1074161306556572_3564229301541897811_n-e1667103999276.jpg?raw=true"
+
+
+" class="card-img-top" alt="Goa Sunyaragi Cirebon">
+                                    <div class="card-body p-3">
+                                        <h6 class="card-title text-cirebon">Goa Sunyaragi</h6>
+                                        <p class="card-text"><small class="text-muted">Disebut "Taman Air Sunyaragi" (Sunya=Sepi, Ragi=Raga), berfungsi sebagai tempat <span class="detail-point">meditasi dan peristirahatan</span> para sultan. Arsitekturnya unik, menyerupai bongkahan karang atau bebatuan alam, menciptakan suasana mistis nan eksotis.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/IMG_20230718_065654-jpg.webp?raw=true"
+
+
+" class="card-img-top" alt="Tari Topeng Cirebon">
+                                    <div class="card-body p-3">
+                                        <h6 class="card-title text-cirebon">Tari Topeng Cirebon</h6>
+                                        <p class="card-text"><small class="text-muted">Tarian klasik yang sangat ekspresif, menceritakan perjalanan hidup manusia melalui <span class="detail-point">lima karakter topeng</span> (Panji, Samba, Rumyang, Temenggung, Kelana). Setiap karakter memiliki filosofi dan gerak tari yang berbeda.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/kereta-singa-barong.jpg?raw=true"
+
+
+" class="card-img-top" alt="Kereta Singa Barong">
+                                    <div class="card-body p-3">
+                                        <h6 class="card-title text-cirebon">Kereta Singa Barong</h6>
+                                        <p class="card-text"><small class="text-muted">Kereta kencana ikonik Kesultanan Cirebon yang melambangkan tiga peradaban besar: <span class="detail-point">Gajah (India), Naga (Tiongkok), dan Sayap Garuda (Islam/Arab)</span>. Wujudnya fantastis dan penuh makna.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <h5 class="text-cirebon">Tradisi dan Bahasa Cirebon yang Mendalam:</h5>
+                                <ul class="list-unstyled">
+                                    <li><span class="detail-point">Panjang Jimat:</span> Upacara adat terbesar yang diadakan setiap Maulid Nabi Muhammad SAW. Ini adalah kirab pusaka keraton yang sakral, melibatkan ribuan warga dalam suasana penuh khidmat dan syukur.</li>
+                                    <li><span class="detail-point">Basa Cirebon:</span> Atau sering disebut *Basa Cerbon*, merupakan dialek Jawa Pesisir (bukan Sunda murni) yang kaya akan pengaruh dari bahasa Sunda, Melayu, bahkan sedikit Tiongkok. Ini adalah identitas linguistik yang unik.</li>
+                                    <li><span class="detail-point">Sintren:</span> Tarian rakyat yang unik dan legendaris dari pesisir utara Jawa, termasuk Cirebon. Tarian ini melibatkan unsur magis dan trans, diperankan oleh seorang penari wanita muda yang "kerasukan" roh bidadari.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="karya-pane" role="tabpanel" aria-labelledby="karya-tab" tabindex="0">
+                         <h4 class="text-cirebon mb-3">🎨 Karya Seni dan Kerajinan Unggulan Cirebon: Keindahan Filosofis</h4>
+                         <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="card shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/044223100_1475401176-Bati_Megamendung_Cirebon.jpg?raw=true"
+
+
+" class="card-img-top" alt="Batik Mega Mendung">
+                                    <div class="card-body p-3">
+                                        <h5 class="card-title text-cirebon">Batik Trusmi: Motif Mega Mendung</h5>
+                                        <p class="card-text"><small>Motif awan yang merupakan <span class="detail-point">simbol kekuasaan dan kebesaran Tuhan</span>. Bentuk awan didapat dari inspirasi ajaran Tiongkok yang melambangkan kelemahlembutan dan ketenangan dalam menghadapi masalah (seperti awan yang membawa hujan membawa kesejukan). Pusat kerajinan batik utama berada di <span class="detail-point">Desa Trusmi</span>.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <p class="lead">Karya seni dan kerajinan Cirebon tidak hanya terkenal di dalam negeri, tetapi juga diekspor ke mancanegara, menunjukkan kualitas dan keunikan desainnya yang berakar pada sejarah panjang akulturasi budaya.</p>
+                                
+                                <h5 class="text-cirebon mt-4">Detail Karya dan Kerajinan Lainnya:</h5>
+                                <ul class="list-unstyled">
+                                    <li><span class="detail-point">Motif Paksinaga Liman:</span> Motif ini menggambarkan Kereta Singa Barong dan menyatukan tiga kekuatan alam: <span class="detail-point">Burung (simbol langit), Naga (simbol air), dan Gajah (simbol bumi)</span>. Filosofi ini mencerminkan keseimbangan dan keharmonisan.</li>
+                                    <li><span class="detail-point">Batik Lokcan:</span> Jenis batik Cirebon yang dihiasi motif Tiongkok berupa naga, burung hong, atau bunga-bunga. Sering menggunakan warna-warna cerah dan keemasan.</li>
+                                    <li><span class="detail-point">Lukisan Kaca:</span> Seni lukis yang sangat langka dan unik karena proses pembuatannya terbalik; pelukis memulai dari detail terkecil dan berakhir dengan latar belakang. Biasanya bertemakan <span class="detail-point">Kaligrafi Islam, Wayang Kulit, atau cerita rakyat</span>.</li>
+                                    <li><span class="detail-point">Kerajinan Rotan:</span> Cirebon adalah salah satu sentra industri rotan terbesar di dunia. Berbagai perabot rumah tangga, dekorasi, hingga aksesoris yang terbuat dari rotan berkualitas tinggi diproduksi dan diekspor global.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="kuliner-pane" role="tabpanel" aria-labelledby="kuliner-tab" tabindex="0">
+                        <h4 class="text-cirebon mb-3">🍲 Makanan Khas Cirebon: Perpaduan Manis, Asam, dan Pedas yang Menggugah Selera</h4>
+                        <div class="row g-4">
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/images%20(6).jpeg?raw=true"
+
+
+" class="card-img-top" alt="Empal Gentong">
+                                    <div class="card-body p-3">
+                                        <h6 class="card-title text-cirebon">1. Empal Gentong & Empal Asem</h6>
+                                        <p class="card-text"><small>**Empal Gentong** adalah sup daging sapi atau kerbau dengan kuah santan kental yang dimasak dalam gentong tanah liat. Kaya rempah, gurih, dan hangat. <span class="detail-point">Empal Asem</span> adalah varian dengan kuah bening yang segar, tanpa santan, dan rasa asamnya berasal dari <span class="detail-point">belimbing wuluh</span>.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/2061105795.webp?raw=true" class="card-img-top" alt="Nasi Jamblang">
+                                    <div class="card-body p-3">
+                                        <h6 class="card-title text-cirebon">2. Nasi Jamblang</h6>
+                                        <p class="card-text"><small>Makanan khas Cirebon yang paling ikonik. Ciri khasnya adalah penyajian nasi yang dibungkus <span class="detail-point">daun jati</span>. Daun jati membuat nasi tahan lama dan memberikan aroma unik. Disantap dengan berbagai pilihan lauk pauk sederhana ala rumahan yang gurih dan bervariasi.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="https://github.com/KotaroGIYU/pp/blob/main/202408291436221724916982_crop.jpg?raw=true" class="card-img-top" alt="Tahu Gejrot">
+                                    <div class="card-body p-3">
+                                        <h6 class="card-title text-cirebon">3. Tahu Gejrot</h6>
+                                        <p class="card-text"><small>Jajanan populer dari Tahu Kopong (tahu sumedang) yang dipotong kecil dan disiram kuah <span class="detail-point">cuka, gula merah, dan bumbu ulek kasar</span> (bawang merah dan cabai rawit). Rasanya perpaduan pedas, manis, dan asam segar yang sangat khas.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row mt-5">
+                            <div class="col-12">
+                                <h5 class="text-cirebon">Kuliner Khas Cirebon Lainnya yang Wajib Dicoba:</h5>
+                                <ul class="list-unstyled">
+                                    <li><span class="detail-point">Nasi Lengko:</span> Makanan sehat yang terdiri dari nasi, potongan tahu/tempe goreng, tauge, kucai, dan mentimun. Disiram dengan <span class="detail-point">bumbu kacang tanpa santan</span> dan kecap manis.</li>
+                                    <li><span class="detail-point">Mi Koclok:</span> Mi rebus dengan kuah yang sangat kental dan berwarna putih pucat. Kuahnya terbuat dari <span class="detail-point">santan dan tepung maizena</span>, memberikan tekstur unik. Disajikan dengan suwiran ayam, telur rebus, dan kerupuk.</li>
+                                    <li><span class="detail-point">Docang:</span> Makanan khas yang berisi lontong, irisan daun singkong, tauge, dan kerupuk. Disiram dengan <span class="detail-point">kuah oncom</span> pedas yang lezat.</li>
+                                    <li><span class="detail-point">Oleh-oleh Khas:</span> Jangan lupa membawa pulang <span class="detail-point">Kerupuk Melarat</span> (kerupuk yang digoreng tanpa minyak), <span class="detail-point">Gapit</span> (kerupuk tipis dari tapioka), dan <span class="detail-point">Sirup Tjampolay</span> (sirup legendaris Cirebon sejak 1936 dengan aneka rasa buah).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="m-0">&copy; 2024 Pesona Kota Cirebon. Dibuat dengan Bootstrap 5.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // Fungsi JavaScript untuk mengaktifkan tab ketika tombol di Navbar diklik
+        function activateTab(tabId) {
+            var tabElement = document.getElementById(tabId);
+            var tab = new bootstrap.Tab(tabElement);
+            tab.show();
+            document.getElementById('main-tabs').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
